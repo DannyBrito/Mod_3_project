@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template: 'user main weather'/1fr 2fr 1fr;
+    padding: 10px;
+    width: 99%;
+    height: 100vh;
+}
+
+
+.grid-item {
+    display: grid;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#user-container {
+    grid-area: 'user';
+}
+
+#main-container {
+    grid-area: 'main';
+}
+
+#weather-container {
+    grid-area: 'weather';
+}
