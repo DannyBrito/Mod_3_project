@@ -13,7 +13,12 @@ function getUserClothing(){
 
 //helper method to render one clothing item
 const renderClothingItem = function(itemObject){
-    const {brand,clothing_type,color} = itemObject
-    const itemHTML = `<div>${clothing_type} - ${brand} - ${color}</div>`
+    const {brand,clothing_type,color,personal_nickname} = itemObject
+    const itemHTML = `<div>${personal_nickname}: ${brand} - ${color}</div>`
     mcContent.innerHTML += itemHTML
+}
+
+// change maincontainer-content
+const renderSearchWeatherForm = function(){
+    mcContent.innerHTML = ""
 }
