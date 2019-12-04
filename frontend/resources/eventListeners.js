@@ -47,7 +47,7 @@ function SearchWeatherFormEvent(){
         else{
             fetchWeather(cityInput)
         }
-        e.reset()
+        e.target.reset()
     })
 }
 

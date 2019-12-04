@@ -1,6 +1,6 @@
 //          **  const api key **
 
-
+// const weatherContainer = document.getElementById('weather-container')
 // *** condition to be implemented after search form
 
 
@@ -8,10 +8,16 @@
 
 function fetchWeather(city, countryCode = null) {
     let weatherUrl;
-    if (countryCode) {
-        weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&units=imperial&APPID=${apiKey}`;
+    let cityFormatted = city.trim().split(' ')
+    if (cityFormatted.length > 1) {
+        cityFormatted = `${cityFormatted[0]}+${cityFormatted[1]}`
     } else {
-        weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${apiKey}`;
+        cityFormatted = cityFormatted[0];
+    }
+    if (countryCode) {
+        weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityFormatted},${countryCode}&units=imperial&APPID=${apiKey}`;
+    } else {
+        weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityFormatted}&units=imperial&APPID=${apiKey}`;
     }
     fetch(weatherUrl)
     .then(function(response){
@@ -26,7 +32,8 @@ function fetchWeather(city, countryCode = null) {
             d = new Date()
             return d.getDate() !== parseInt(obj.dt_txt.split('-')[2].split(' ')[0]); 
         })
-        addWeather(list[indexReturned + 4], city, countryCode);
+        weatherContainer.innerHTML = '';
+        addWeather(list[indexReturned + 4], cityFormatted, countryCode);
     })
 }
 
