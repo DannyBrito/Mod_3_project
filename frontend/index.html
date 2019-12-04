@@ -8,7 +8,14 @@
     </head>
     <body>
         <div class="grid-container">
-            <div id="user-container" class="grid-item"></div>
+            <div id="user-container" class="grid-item">
+                <div class="dropdown">
+                    <a class="dropdown-btn">Users <span id="arrow" style="transform: rotate(0deg);">&#9660</span></a>
+                    <div class="my-dropdown" style="display: none;">
+                        <ul class='dropdown-list'></ul>
+                    </div>
+                </div>
+            </div>
             <div id="main-container" class="grid-item">2</div>
             <div id="weather-container" class="grid-item">3</div>
         </div>
