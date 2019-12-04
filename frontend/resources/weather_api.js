@@ -1,25 +1,36 @@
 //          **  const api key **
 
-// const city = "New+York"
-// const countryCode = "us"
-// const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&units=imperial&APPID=${apiKey}`;
-// const tempByDayList = document.getElementById('temp-list');
+
+// *** condition to be implemented after search form
 
 
-// fetch(url)
-//     .then(function(response){
-//         return response.json()
-//     })
-//     .then(function(object){
-//         object.list.forEach(ele => addWeather(ele))
-//     })
-
-// function addWeather(ele) {
-// weatherHTML = `<li>${ele.main.temp} degrees Fahrenheit - ${ele.dt_txt}- Wind:${ele.wind.speed}MPH<ul><li><p>${ele.weather[0].main}: ${ele.weather[0].description}</p></li></ul></li>`
-//     tempByDayList.insertAdjacentHTML('beforeend', weatherHTML);
-// }
 
 
-// user_container.addEventListener('click', function(event){
-//     if (event.target.)
-// })
+function fetchWeather(city, countryCode = null) {
+    let weatherUrl;
+    if (countryCode) {
+        weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&units=imperial&APPID=${apiKey}`;
+    } else {
+        weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&APPID=${apiKey}`;
+    }
+    fetch(weatherUrl)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(object){
+
+        const {list} = object
+        const indexReturned = list.findIndex(function(obj, index, array) {
+            
+            let d;
+            d = new Date()
+            return d.getDate() !== parseInt(obj.dt_txt.split('-')[2].split(' ')[0]); 
+        })
+        addWeather(list[indexReturned + 4], city, countryCode);
+    })
+}
+
+
+
+
+
