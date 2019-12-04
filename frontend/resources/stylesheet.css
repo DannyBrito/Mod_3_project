@@ -25,6 +25,7 @@ body {
 
 #main-container {
     grid-area: 'main';
+    justify-content: center;
 }
 
 #weather-container {
@@ -107,6 +108,31 @@ body {
     color: blue;
     list-style-type: disc;
 }
+ 
 
 
+
+.mc-nav{
+    display: grid;
+    grid-template-columns:auto auto auto;
+    padding: 0px;
+    width: 50%;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.mc-nav-item{
+    text-align: center;
+    display: grid;
+    height: 100px;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+ 
+#mc-content-space{
+    height: 100vh;
+    margin: 1px;
+}
 
