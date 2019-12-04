@@ -22,7 +22,7 @@ shorts = ClothingItem.create(brand: "Addidas", clothing_type: "pants", color: "b
 winter_hat = ClothingItem.create(brand: "Uniqlo", clothing_type: "hat", color: "blue", temp_min: -40, temp_max: 45)
 gloves = ClothingItem.create(brand: "Uniqlo", clothing_type: "gloves", color: "black", temp_min: -40, temp_max: 39)
 
-uci1 = UserClothingItem.create(user: danny, clothing_item: gray_hoodie)
+uci1 = UserClothingItem.create(user: danny, clothing_item: gray_hoodie, personal_nickname: 'go to gray hoodie')
 uci2 = UserClothingItem.create(user: danny, clothing_item: express)
 uci3 = UserClothingItem.create(user: danny, clothing_item: white_socks)
 uci4 = UserClothingItem.create(user: danny, clothing_item: jeans)
@@ -31,3 +31,4 @@ uci6 = UserClothingItem.create(user: danny, clothing_item: white_tshirt)
 uci7 = UserClothingItem.create(user: danny, clothing_item: shorts)
 uci8 = UserClothingItem.create(user: danny, clothing_item: gloves)
 uci9 = UserClothingItem.create(user: danny, clothing_item: winter_hat)
+uci10 = UserClothingItem.create(user: jack, clothing_item: gray_hoodie, personal_nickname: 'the warm boy')
