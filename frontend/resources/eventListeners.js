@@ -36,3 +36,18 @@ mc_nav_bar.addEventListener('click',function(event){
 })
 }
 
+function SearchWeatherFormEvent(){
+    weatherForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const cityInput = e.target.querySelector('input').value
+        console.log(e.target.querySelector('input').value)
+         if(e.target.querySelector('select').value){
+             fetchWeather(cityInput, e.target.querySelector('select').value)
+        }
+        else{
+            fetchWeather(cityInput)
+        }
+        e.reset()
+    })
+}
+
