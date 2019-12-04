@@ -11,7 +11,7 @@ function LoginMainContainer(){
     `<div class="mc-nav" id="mc-nav-div">
         <div id="wd-btn"class="mc-nav-item" data-user-id=${currentUser}>wardrobe</div>
         <div id="current-btn"class="mc-nav-item" data-user-id=${currentUser}>current</div>
-        <div id="editwd-btn"class="mc-nav-item" data-user-id=${currentUser}>edit wardrobe</div>
+        <div id="edit-wd-btn"class="mc-nav-item" data-user-id=${currentUser}>edit wardrobe</div>
     </div>
     <div id="mc-content-space">
     </div>`

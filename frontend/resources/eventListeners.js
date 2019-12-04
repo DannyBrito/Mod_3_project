@@ -23,10 +23,15 @@ dropdownContainer.addEventListener('click', function(event){
     }
     }
 )
+
+
 function mcNavBarEvent(){
 mc_nav_bar.addEventListener('click',function(event){
     if(event.target.id === "wd-btn"){
         getUserClothing(currentUser)
+    }
+    else if(event.target.id === "current-btn"){
+        renderSearchWeatherForm()
     }
 })
 }
