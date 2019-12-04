@@ -1,5 +1,5 @@
 //          **  const api key **
-
+const apiKey = "f253a724ea3c62a98067acce76f51efb";
 // const weatherContainer = document.getElementById('weather-container')
 // *** condition to be implemented after search form
 
@@ -34,6 +34,9 @@ function fetchWeather(city, countryCode = null) {
         })
         weatherContainer.innerHTML = '';
         addWeather(list[indexReturned + 4], cityFormatted, countryCode);
+    })
+    .catch(function(error) {
+        weatherContainer.innerHTML = `<h6>Sorry we could not process your request. Maybe something was spelled incorrectly or we don't handle weather for that area?</h6>`
     })
 }
 
