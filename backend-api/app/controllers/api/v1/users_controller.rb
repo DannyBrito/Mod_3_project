@@ -3,7 +3,6 @@ class Api::V1::UsersController < ApplicationController
         users = User.all
 
          render json: users, only: [:id, :username]
-        # render json: UserSerializer.new(users).to_serialized_json
     end
 
     def show
@@ -12,14 +11,6 @@ class Api::V1::UsersController < ApplicationController
         user = user.attributes
         user[:clothing_items] = list
         render json: user
-
-
-
-
-
-
-        # options = { include: [:clothing_items] }
-        # render json: user, include: :clothing_items 
     end
 
 end
