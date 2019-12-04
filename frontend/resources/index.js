@@ -19,6 +19,8 @@ let currentUser;
  let mcContent;
  let weatherForm;
  let selectCountryForm;
+ let currentUserClothing;
+ let wdResultContainer;
 
 // ________________________________________________FUNCTION CALLING____________________________________________
     fetchUsersDropDown() // Populate dropdown menu with users
