@@ -11,7 +11,7 @@ const baseUrl = 'http://localhost:3000/api/v1';
 
 //________________________________________________Jack____________________________________________
 let currentUser;
-
+let clothingTypes = ['Sweater', 'Shoes', 'Tshirt', 'Socks', 'Light Jacket', 'Heavy Jacket', 'Pants', 'Hat', 'Gloves', 'Accessory', 'Longsleeve'];
 
 
 //________________________________________________Danny____________________________________________
