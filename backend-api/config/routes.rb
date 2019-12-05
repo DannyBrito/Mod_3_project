@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users, :clothing_items
+      resources :users, :clothing_items, :user_clothing_items
       get '/country-codes', to: "users#contryCodes"
     end
   end
