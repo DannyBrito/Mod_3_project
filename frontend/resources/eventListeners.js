@@ -26,12 +26,18 @@ dropdownContainer.addEventListener('click', function(event){
 
 function mcNavBarEvent(){
 mc_nav_bar.addEventListener('click',function(event){
+    mcContent.removeEventListener("click",eventfn) // supposted to remove event listener but 
     if(event.target.id === "wd-btn"){
         getUserClothing()
     }
     else if(event.target.id === "current-btn"){
         renderSearchWeatherForm()
         getUserClothing(true)
+    }
+    else if(event.target.id === "edit-wd-btn"){
+        getUserClothing(false,true)
+        editWardrobeEvent() // add multiple event listeners if spam?
+        
     }
 })
 }
@@ -52,3 +58,12 @@ function SearchWeatherFormEvent(){
     })
 }
 
+function editWardrobeEvent(){
+    mcContent.addEventListener('click', eventfn)
+}
+
+// need to have helper method for event listener to prevent duplicating event-listeners in same element
+const eventfn =  e => {
+    console.log(e.target.dataset.uciId)
+    userItemDestroyConnection(e.target.dataset.uciId)
+}
