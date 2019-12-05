@@ -10,7 +10,6 @@ dropdownContainer.addEventListener('click', function(event){
             dropdownList.addEventListener('click', function(event){
                 if (event.target.className === 'user') {
                     currentUser = event.target.dataset.id;
-                    console.log(currentUser)
                     LoginMainContainer()
                     mcNavBarEvent()
                 }
@@ -41,12 +40,13 @@ function SearchWeatherFormEvent(){
     weatherForm.addEventListener('submit', e => {
         e.preventDefault()
         const cityInput = e.target.querySelector('input').value
-        console.log(e.target.querySelector('input').value)
+        if(cityInput){
          if(e.target.querySelector('select').value){
              fetchWeather(cityInput, e.target.querySelector('select').value)
         }
         else{
             fetchWeather(cityInput)
+        }
         }
         e.target.reset()
     })

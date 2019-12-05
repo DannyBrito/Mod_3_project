@@ -1,5 +1,5 @@
 //          **  const api key **
-const apiKey = "f253a724ea3c62a98067acce76f51efb";
+
 // const weatherContainer = document.getElementById('weather-container')
 // *** condition to be implemented after search form
 
@@ -32,15 +32,19 @@ function fetchWeather(city, countryCode = null) {
             return d.getDate() !== parseInt(obj.dt_txt.split('-')[2].split(' ')[0]); 
             })
 
-            const nextDayNoon = list[indexReturned + 4]
+            const nextDayNoon = list[indexReturned + 3]
+            
+            filterUserCloth(nextDayNoon)
 
             weatherContainer.innerHTML = '';
         
             // renders weather info on weather container
-            addWeather(nextDayNoon, cityFormatted, countryCode);})
+            addWeather(nextDayNoon, cityFormatted, countryCode);
+            })
             .catch(function(error) {
-        weatherContainer.innerHTML = `<h6>Sorry we could not process your request. Maybe something was spelled incorrectly or we don't handle weather for that area?</h6>`
-    })
+                weatherContainer.innerHTML = `<h6>Sorry we could not process your request. Maybe something was spelled incorrectly or we don't handle weather for that area?</h6>`
+                console.log(error)
+            })
 }
 
 

@@ -2,7 +2,7 @@
 
 function mainContainerWelcome(){
     main_container.innerHTML = "<div id='mctitle'>WELCOME</div>"
-    main_container.style.background = "blue"
+    main_container.style.background = "rgba(183, 233, 247)"
 }
 
 function LoginMainContainer(){

@@ -39,9 +39,7 @@ const renderSearchWeatherForm = function(){
             <input type="submit" value="Search">
         </form>
     </div>
-    <div id="wd-result-display">
-    </div>
-    `
+    <div id="wd-result-display"></div>`
     wdResultContainer = document.getElementById('wd-result-display')
     weatherForm = document.getElementById('w-search-form')
     selectCountryForm = weatherForm.querySelector('select')
