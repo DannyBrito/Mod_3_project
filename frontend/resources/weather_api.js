@@ -24,7 +24,7 @@ function fetchWeather(city, countryCode = null) {
                 return response.json()
             })
             .then(function(object){
-
+            debugger;
             const {list} = object
 
             //filters the weather prediction for the following day for noon in specific
