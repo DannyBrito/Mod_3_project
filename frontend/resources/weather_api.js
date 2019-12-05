@@ -5,7 +5,6 @@
 function fetchWeather(city, countryCode = null) {
     let weatherUrl;
     let cityFormatted = city.split(' ');
-    // debugger;
     cityFormatted = cityFormatted.filter(city => city.length >= 1)
     if ( cityFormatted.length >2 && cityFormatted[cityFormatted.length - 1].toLowerCase() === 'city' ) {
         cityFormatted.pop();
@@ -23,7 +22,6 @@ function fetchWeather(city, countryCode = null) {
                 return response.json()
             })
             .then(function(object){
-            debugger;
             const {list} = object
 
             //filters the weather prediction for the following day for noon in specific

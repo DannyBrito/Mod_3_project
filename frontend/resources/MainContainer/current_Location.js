@@ -14,13 +14,46 @@ function filterUserCloth(weatherObj){
     wdResultContainer.innerHTML = ""
     //callback function to implement each result HTML
     filteredClothing.forEach(addClothingResults);
+    let clothingInfoContainer;
+    wdResultContainer.addEventListener('mouseover', function(event){
+        clothingInfoContainer = event.target.querySelector('.pop-up')
+        if (event.target.dataset.id) {
+            if (event.target.dataset.id === clothingInfoContainer.dataset.clothing) {
+                clothingInfoContainer.style.display = 'block';
+            } 
+            // move this ( MAYBE ) to a mouseout evnt on wdResultContainer and check that event.target.dataset.id exists or add a classname
+            event.target.addEventListener('mouseout', function(){
+                // debugger;
+                clothingInfoContainer.style.display = 'none';
+            })
+        }
+        
+        
+    })
+    
+    
+    } else {
+        wdResultContainer.innerHTML = "<h1>Get Clothing B </h1>"
     }
-    else{
-    wdResultContainer.innerHTML = "<h1>Get Clothing B </h1>"
-    }
+    
+    
+
+    
 }
 
+
 function addClothingResults(item){
-    const {personal_nickname, brand, clothing_type} = item
-    wdResultContainer.innerHTML += `<div> ${personal_nickname} - ${brand} - ${clothing_type}</div>`
+    const {personal_nickname, brand, clothing_type, color, id} = item
+    wdResultContainer.innerHTML += `<div data-id=${id}>${personal_nickname} <div class="pop-up" data-clothing=${id} style="display: none;">${brand} - ${clothing_type} - ${color}</div></div>`
+    
 }
+
+
+    //ask danny what wdResultContainer is
+
+        // if (event.target.dataset.id === id) {
+        //     console.log('yo')
+        // }
+
+
+// ${brand} - ${clothing_type}

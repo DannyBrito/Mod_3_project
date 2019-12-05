@@ -20,12 +20,12 @@ heavy_jacket = ClothingItem.create(brand: "Saturdays", clothing_type: "Heavy Jac
 jeans = ClothingItem.create(brand: "Levy's", clothing_type: "Pants", color: "blue", temp_exempt: true, temp_min: -40, temp_max: 140)
 shorts = ClothingItem.create(brand: "Addidas", clothing_type: "Pants", color: "black", temp_min: 70, temp_max: 140)
 winter_hat = ClothingItem.create(brand: "Uniqlo", clothing_type: "Hat", color: "blue", temp_min: -40, temp_max: 45)
-gloves = ClothingItem.create(brand: "Uniqlo", clothing_type: "Accessory", color: "black", temp_min: -40, temp_max: 39)
+gloves = ClothingItem.create(brand: "Uniqlo", clothing_type: "Gloves", color: "black", temp_min: -40, temp_max: 39)
 sunglasses = ClothingItem.create(brand: "Warby Parker", clothing_type: "Accessory", color: "patterned", temp_exempt: true, temp_min: -40, temp_max: 140)
 longsleeve = ClothingItem.create(brand: "Gap", clothing_type: "Longsleeve", color: "black", temp_exempt: false, temp_min: -40, temp_max: 60)
 chinos = ClothingItem.create(brand: "Dickies", clothing_type: "Pants", color: 'brown', temp_exempt: false, temp_min: -40, temp_max: 80)
 heattech_tights = ClothingItem.create(brand: "Uniqlo", clothing_type: "Accessory", color: 'black', temp_exempt: false, temp_min: -40, temp_max: 35)
-heattech_shirt = ClothingItem.create(brand: "Uniqlo", clothing_type: "Accessory", color: 'black', temp_exempt: false, temp_min: -40, temp_max: 35)
+heattech_shirt = ClothingItem.create(brand: "Uniqlo", clothing_type: "Longsleeve", color: 'black', temp_exempt: false, temp_min: -40, temp_max: 35)
 converse = ClothingItem.create(brand: "Converse", clothing_type: "Shoes", color: 'white', temp_exempt: false, temp_min: 20, temp_max: 140)
 
 
