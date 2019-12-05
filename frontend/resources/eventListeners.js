@@ -67,7 +67,8 @@ function editWardrobeEvent(){
 const eventfn =  e => {
     if(e.target.localName === 'button') userItemDestroyConnection(e.target.dataset.uciId)
 }
- const placeHolder = [1,2,3,4,5]
+
+
 function newItemFormc(){
     newItemForm = newClothingItemdiv.querySelector('form')
     clothingTypes.forEach(e =>{
@@ -84,5 +85,9 @@ const newItemfn = e =>{
     e.preventDefault()
     let inputs =[...e.target.querySelectorAll('input')].map(e => e.value)
     inputs.pop()
-    console.log(inputs)   
+    inputs.push(e.target.querySelector('select').value)
+    if(inputs.length === 6){
+
+    }
+    e.target.reset()
 }
