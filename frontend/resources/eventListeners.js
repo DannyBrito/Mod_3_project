@@ -64,6 +64,5 @@ function editWardrobeEvent(){
 
 // need to have helper method for event listener to prevent duplicating event-listeners in same element
 const eventfn =  e => {
-    console.log(e.target.dataset.uciId)
-    userItemDestroyConnection(e.target.dataset.uciId)
+    if(e.target.localName === 'button') userItemDestroyConnection(e.target.dataset.uciId)
 }
