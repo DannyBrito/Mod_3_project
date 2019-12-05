@@ -1,15 +1,18 @@
 //          **  const api key **
+
 // const weatherContainer = document.getElementById('weather-container')
 // *** condition to be implemented after search form
 
 function fetchWeather(city, countryCode = null) {
     let weatherUrl;
-    let cityFormatted = city.trim().split(' ')
-        if (cityFormatted.length > 1) {
-        cityFormatted = `${cityFormatted[0]}+${cityFormatted[1]}`
-        } else {
-        cityFormatted = cityFormatted[0];
-        }
+    let cityFormatted = city.split(' ');
+    // debugger;
+    cityFormatted = cityFormatted.filter(city => city.length >= 1)
+    if ( cityFormatted.length >2 && cityFormatted[cityFormatted.length - 1].toLowerCase() === 'city' ) {
+        cityFormatted.pop();
+    }
+    cityFormatted = cityFormatted.join('+');
+        
         if (countryCode) {
             weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${cityFormatted},${countryCode}&units=imperial&APPID=${apiKey}`;
         } else {
