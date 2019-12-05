@@ -67,3 +67,22 @@ function editWardrobeEvent(){
 const eventfn =  e => {
     if(e.target.localName === 'button') userItemDestroyConnection(e.target.dataset.uciId)
 }
+ const placeHolder = [1,2,3,4,5]
+function newItemFormc(){
+    newItemForm = newClothingItemdiv.querySelector('form')
+    clothingTypes.forEach(e =>{
+        newItemForm.querySelector('select').innerHTML += `<option value=${e}>${e}</option>`
+    })
+    newItemFormEventListener()
+}
+
+function newItemFormEventListener(){
+    newItemForm.addEventListener('submit', newItemfn)
+}
+
+const newItemfn = e =>{
+    e.preventDefault()
+    let inputs =[...e.target.querySelectorAll('input')].map(e => e.value)
+    inputs.pop()
+    console.log(inputs)   
+}
