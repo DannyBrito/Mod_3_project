@@ -1,4 +1,5 @@
 //dropdown menu event lister
+
 dropdownContainer.addEventListener('click', function(event){
     if (event.target.className === 'dropdown-btn') {
         if (myDropdown.style.display === 'none') {
