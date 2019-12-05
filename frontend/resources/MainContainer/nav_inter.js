@@ -16,8 +16,10 @@ function getUserClothing(save = false, btFlag = false){
                 <div id="new-item-form-cont">
                 </div>`
                 newClothingItemdiv = document.getElementById('new-item-form-cont')
+
                 if(btFlag) {
                     newClothingItemdiv.innerHTML = 
+
                 `<form id="newItemForm">
                     <label>Nickname:</label>
                     <input type="text">
@@ -35,7 +37,9 @@ function getUserClothing(save = false, btFlag = false){
                     <input type="submit" value="Search">
                 </form>`
                 newItemFormc()
-                }
+
+            }
+
                 if (clothing_items.length){
                     clothing_items.forEach(item => renderClothingItem(item, btFlag));
                 }
