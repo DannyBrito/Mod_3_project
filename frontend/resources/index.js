@@ -21,6 +21,7 @@ let currentUser;
  let selectCountryForm;
  let currentUserClothing;
  let wdResultContainer;
+ let filteredClothing;
 
 // ________________________________________________FUNCTION CALLING____________________________________________
     fetchUsersDropDown() // Populate dropdown menu with users
