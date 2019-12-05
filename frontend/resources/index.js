@@ -16,12 +16,14 @@ let clothingTypes = ['Sweater', 'Shoes', 'Tshirt', 'Socks', 'Light Jacket', 'Hea
 
 //________________________________________________Danny____________________________________________
  let mc_nav_bar;
- let mcContent;
- let weatherForm;
+ let mcContent; // main container for mid div
+ let weatherForm; 
  let selectCountryForm;
  let currentUserClothing;
  let wdResultContainer;
  let filteredClothing;
+ let newClothingItemdiv;
+ let newItemForm;
 
 // ________________________________________________FUNCTION CALLING____________________________________________
     fetchUsersDropDown() // Populate dropdown menu with users

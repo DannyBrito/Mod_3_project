@@ -1,4 +1,5 @@
 //          **  const api key **
+
 // const weatherContainer = document.getElementById('weather-container')
 // *** condition to be implemented after search form
 

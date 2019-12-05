@@ -11,9 +11,31 @@ function getUserClothing(save = false, btFlag = false){
             if(save) currentUserClothing = clothing_items
 
             else{
-                mcContent.innerHTML = ""
+                mcContent.innerHTML = 
+                `<div id="clothing-user-container"></div>
+                <div id="new-item-form-cont">
+                </div>`
+                newClothingItemdiv = document.getElementById('new-item-form-cont')
+                if(btFlag) newClothingItemdiv.innerHTML = 
+                `<form id="newItemForm">
+                    <label>Nickname:</label>
+                    <input type="text">
+                    <label>Type:</label>
+                    <select id ="typeclothingdropm">
+                    </select>
+                    <label>Brand:</label>
+                    <input type="text">
+                    <label>Color:</label>
+                    <input type="text">
+                    <label>Temperature Min:</label>
+                    <input type="number">
+                    <label>Temperature Max:</label>
+                    <input type="number">
+                    <input type="submit" value="Search">
+                </form>`
+                newItemFormc()
                 if (clothing_items.length){
-                clothing_items.forEach(item => renderClothingItem(item, btFlag));
+                    clothing_items.forEach(item => renderClothingItem(item, btFlag));
                 }
                 else{
                     mcContent.innerHTML = "Get clothing B" 
@@ -28,7 +50,7 @@ const renderClothingItem = function(itemObject, deleteBtnflag = false){
     let itemHTML;
     if(deleteBtnflag){ itemHTML = `<div> ${personal_nickname}: ${brand} - ${color} <button data-uci-id=${user_item_connection}> ❌ </button> </div>`}
     else{itemHTML = `<div data-uci-id=${user_item_connection}>${personal_nickname}: ${brand} - ${color}</div>`}
-    mcContent.innerHTML += itemHTML
+    mcContent.querySelector('div#clothing-user-container').innerHTML += itemHTML
 }
 
 // change maincontainer-content
