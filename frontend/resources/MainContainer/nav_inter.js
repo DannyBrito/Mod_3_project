@@ -12,7 +12,12 @@ function getUserClothing(save = false, btFlag = false){
 
             else{
                 mcContent.innerHTML = ""
+                if (clothing_items.length){
                 clothing_items.forEach(item => renderClothingItem(item, btFlag));
+                }
+                else{
+                    mcContent.innerHTML = "Get clothing B" 
+                }
             }
         })
 }
@@ -21,7 +26,7 @@ function getUserClothing(save = false, btFlag = false){
 const renderClothingItem = function(itemObject, deleteBtnflag = false){
     const {brand,clothing_type,color,personal_nickname,user_item_connection} = itemObject
     let itemHTML;
-    if(deleteBtnflag){ itemHTML = `<div data-uci-id=${user_item_connection}>${personal_nickname}: ${brand} - ${color} <button>❗️ </button> </div>`}
+    if(deleteBtnflag){ itemHTML = `<div> ${personal_nickname}: ${brand} - ${color} <button data-uci-id=${user_item_connection}> ❌ </button> </div>`}
     else{itemHTML = `<div data-uci-id=${user_item_connection}>${personal_nickname}: ${brand} - ${color}</div>`}
     mcContent.innerHTML += itemHTML
 }
@@ -91,7 +96,7 @@ function userItemDestroyConnection(id){
     })
     .then(res => res.json())
     .then(json =>{
-        getUserClothing()//render
+        getUserClothing(false,true)//render
         getUserClothing(true)// save new clothing inventory
         console.log(json)})
 }
