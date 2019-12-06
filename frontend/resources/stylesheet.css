@@ -1,5 +1,6 @@
-body {
+* {
     margin: 0px;
+    padding: 0px;
     font-family: Helvetica;
 }
 
@@ -9,6 +10,7 @@ body {
     padding: 10px;
     width: 95%;
     height: 100vh;
+    width: 100vw;
     margin: 0px;
 }
 
@@ -150,11 +152,12 @@ body {
     position: relative;
     width: 100%;
     font-size: 20px;
+    overflow: scroll;
 }
 
 #new-item-form-cont {
     position: relative;
-    top: 400px;
+    top: 450px;
 }
 
 #newItemForm label {
@@ -226,3 +229,21 @@ hr {
 /* span {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 } */
+
+#weather-container {
+    background: linear-gradient(darkblue, lightblue)
+}
+
+#weather-container h5 {
+    color: yellow;
+    text-shadow: 1px 1px red;
+    height: 50px;
+}
+
+#weather-container p {
+    height: 50px;
+}
+
+p {
+    margin: 0px;
+}

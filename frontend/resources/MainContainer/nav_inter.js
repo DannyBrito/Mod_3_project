@@ -13,10 +13,11 @@ function getUserClothing(save = false, btFlag = false) {
             else {
                 // <div id="rend-full-inv"> <button>Add Clothing by our Inventory</button></div> alternative for button
                 mcContent.innerHTML =
-                    `<div id="clothing-user-container">   
-                </div>
-                <div id="new-item-form-cont">
-                </div>`
+                    `<div id="clothing-user-container">  
+                    </div><div id="new-item-form-cont">
+                    </div>`
+                
+                
                 newClothingItemdiv = document.getElementById('new-item-form-cont')
 
                 if (btFlag) {
@@ -46,8 +47,8 @@ function getUserClothing(save = false, btFlag = false) {
                 if (clothing_items.length) {
                     clothing_items.forEach(item => renderClothingItem(item, btFlag));
                 }
-                else {
-                    mcContent.innerHTML = "Get clothing B"
+                else if (btFlag && clothing_items.length === 0 || btFlag === false && clothing_items.length === 0) {
+                    mcContent.insertAdjacentHTML('afterbegin', "GET CLOTHING B");
                 }
             }
         })

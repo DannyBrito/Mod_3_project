@@ -13,6 +13,7 @@ const clotItemUrl = 'http://localhost:3000/api/v1/clothing_items'
 //________________________________________________Jack____________________________________________
 let currentUser;
 let clothingTypes = ['Sweater', 'Shoes', 'Tshirt', 'Socks', 'Light Jacket', 'Heavy Jacket', 'Pants', 'Hat', 'Gloves', 'Accessory', 'Longsleeve'];
+const newUserForm = document.getElementById('new-user-form');
 
 
 //________________________________________________Danny____________________________________________

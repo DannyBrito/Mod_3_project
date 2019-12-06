@@ -169,3 +169,34 @@ const itemclfn =  e => {
     }
 }
 
+function postUser(user){
+    fetch(usersUrl,{
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify({
+            username: user
+        })
+    })
+    .then(resp => resp.json())
+    .then(function(user){
+        dropdownList.innerHTML = '';
+        fetchUsersDropDown();
+    })
+    .catch(console.log)
+}
+
+// postUser()
+
+newUserForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    let username = document.getElementById('new-username').value;
+    
+    postUser(username)
+})
+
+
+
+
