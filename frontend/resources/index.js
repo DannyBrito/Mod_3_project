@@ -5,7 +5,8 @@ const weather_container = document.getElementById('weather-container');
 //URLS
 const usersUrl = 'http://localhost:3000/api/v1/users';
 const baseUrl = 'http://localhost:3000/api/v1';
-
+const uciUrl = 'http://localhost:3000/api/v1/user_clothing_items'
+const clotItemUrl = 'http://localhost:3000/api/v1/clothing_items'
 // const allUsers = new InterntalApi(usersUrl);
 
 
@@ -24,6 +25,7 @@ let clothingTypes = ['Sweater', 'Shoes', 'Tshirt', 'Socks', 'Light Jacket', 'Hea
  let filteredClothing;
  let newClothingItemdiv;
  let newItemForm;
+ 
 
 // ________________________________________________FUNCTION CALLING____________________________________________
     fetchUsersDropDown() // Populate dropdown menu with users
