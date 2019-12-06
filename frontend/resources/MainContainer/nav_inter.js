@@ -11,13 +11,16 @@ function getUserClothing(save = false, btFlag = false){
             if(save) currentUserClothing = clothing_items
 
             else{
+                // <div id="rend-full-inv"> <button>Add Clothing by our Inventory</button></div> alternative for button
                 mcContent.innerHTML = 
-                `<div id="clothing-user-container"></div>
+                `<div id="clothing-user-container">   
+                </div>
                 <div id="new-item-form-cont">
                 </div>`
                 newClothingItemdiv = document.getElementById('new-item-form-cont')
 
                 if(btFlag) {
+                    document.getElementById('clothing-user-container').innerHTML = `<button>Add Clothing by our Inventory</button>`
                     newClothingItemdiv.innerHTML = 
 
                 `<form id="newItemForm">
@@ -98,16 +101,18 @@ function optionCountryHtml(code, countryName){
 }
 
 // creating a instance to connect an user with a clothing item
-function userItemCreateConnection(user_id,clothing_item_id){
-    fetch('http://localhost:3000/api/v1/user_clothing_items',{
+function userItemCreateConnection(nickName,clothing_item_id){
+    fetch(uciUrl,{
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json'
         },
         body: JSON.stringify({
-            user_id,
+            user_id: currentUser,
+            personal_nickname: nickName,
             clothing_item_id,
+            exiting_Item: true
         })
     })
     .then(res => res.json())
@@ -115,7 +120,7 @@ function userItemCreateConnection(user_id,clothing_item_id){
 }
 
 function userItemDestroyConnection(id){
-    fetch(`http://localhost:3000/api/v1/user_clothing_items/${id}`,{
+    fetch( uciUrl+`/${id}`,{
         method: "DELETE",
         // headers: {
         //     'Content-Type': 'application/json',

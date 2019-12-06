@@ -12,7 +12,12 @@ class Api::V1::UserClothingItemsController < ApplicationController
 
     def create
         #error to handle -> do not permit create instance if no nickname
-        UserClothingItem.create(create_params)
+        if(params[:exiting_Item])
+            UserClothingItem.create(user_id: params[:user_id],personal_nickname: params[:personal_nickname],clothing_item_id: params[:clothing_item_id])
+        else # for new Item
+        new_clothing_item = ClothingItem.create(brand: params[:brand],clothing_type: params[:clothing_type],color: params[:color],temp_min: params[:temp_min], temp_max: params[:temp_max])
+        UserClothingItem.create(user_id: params[:user_id],personal_nickname: params[:personal_nickname],clothing_item: new_clothing_item)
+        end
         render json: {message: "user item connetion succesfully created"}, status: 200
     end
 
