@@ -142,7 +142,7 @@ function fetchallClothing(){
     fetch(clotItemUrl)
     .then(res => res.json())
     .then(json =>{
-        mcContent.innerHTML =`Pers. Nickname: <input id="inpt-nuci"></input>`
+        mcContent.innerHTML =`<p>Pers. Nickname: <input id="inpt-nuci"></p>`
         json.forEach(renderItemInventory)
         mcContent.removeEventListener("click",eventfn) // delete previous event listener before adding new one
         fullInventoryEvent()
