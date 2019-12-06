@@ -9,7 +9,16 @@ dropdownContainer.addEventListener('click', function(event){
                 arrow.innerHTML = '&#9650';
             }  
             dropdownList.addEventListener('click', function(event){
+                users = document.querySelectorAll('.user')
                 if (event.target.className === 'user') {
+                    users.forEach(user => {
+                        if (user === event.target) {
+                            event.target.style.color = 'blue';
+                        } else {
+                            user.style.color = 'black';
+                        }
+                    })
+                    
                     currentUser = event.target.dataset.id;
                     LoginMainContainer()
                     mcNavBarEvent()

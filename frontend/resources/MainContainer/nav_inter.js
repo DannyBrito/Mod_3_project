@@ -22,19 +22,19 @@ function getUserClothing(save = false, btFlag = false){
 
                 `<form id="newItemForm">
                     <label>Nickname:</label>
-                    <input type="text">
+                    <input type="text"><br>
                     <label>Type:</label>
                     <select id ="typeclothingdropm">
-                    </select>
+                    </select><br>
                     <label>Brand:</label>
-                    <input type="text">
+                    <input type="text"><br>
                     <label>Color:</label>
-                    <input type="text">
+                    <input type="text"><br>
                     <label>Temperature Min:</label>
-                    <input type="number">
+                    <input type="number"><br>
                     <label>Temperature Max:</label>
                     <input type="number">
-                    <input type="submit" value="Search">
+                    <input class="search" type="submit" value="Search">
                 </form>`
                 newItemFormc()
 
@@ -54,8 +54,8 @@ function getUserClothing(save = false, btFlag = false){
 const renderClothingItem = function(itemObject, deleteBtnflag = false){
     const {brand,clothing_type,color,personal_nickname,user_item_connection} = itemObject
     let itemHTML;
-    if(deleteBtnflag){ itemHTML = `<div> ${personal_nickname}: ${brand} - ${color} <button data-uci-id=${user_item_connection}> ❌ </button> </div>`}
-    else{itemHTML = `<div data-uci-id=${user_item_connection}>${personal_nickname}: ${brand} - ${color}</div>`}
+    if(deleteBtnflag){ itemHTML = `<div class="clothing-block"> <strong>${personal_nickname}</strong>: ${brand} - <span style="color: ${color}">${color}</span> <button data-uci-id=${user_item_connection}> ❌ </button> </div>`}
+    else{itemHTML = `<div class="clothing-block" data-uci-id=${user_item_connection}><strong>${personal_nickname}</strong>: ${brand} - <span style="color: ${color}">${color}</span></div>`}
     mcContent.querySelector('div#clothing-user-container').innerHTML += itemHTML
 }
 
@@ -71,7 +71,7 @@ const renderSearchWeatherForm = function(){
                 <select>
                     <option value="">Select Country</option>
                 </select><br>
-            <input type="submit" value="Search">
+            <input class="search" type="submit" value="Search">
         </form>
     </div>
     <div id="wd-result-display"></div>`

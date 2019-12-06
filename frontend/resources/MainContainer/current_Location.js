@@ -18,6 +18,7 @@ function filterUserCloth(weatherObj){
     wdResultContainer.addEventListener('mouseover', function(event){
         clothingInfoContainer = event.target.querySelector('.pop-up')
         if (event.target.dataset.id) {
+            event.target.style.cursor = 'pointer';
             if (event.target.dataset.id === clothingInfoContainer.dataset.clothing) {
                 clothingInfoContainer.style.display = 'block';
             } 
@@ -44,7 +45,7 @@ function filterUserCloth(weatherObj){
 
 function addClothingResults(item){
     const {personal_nickname, brand, clothing_type, color, id} = item
-    wdResultContainer.innerHTML += `<div data-id=${id}>${personal_nickname} <div class="pop-up" data-clothing=${id} style="display: none;">${brand} - ${clothing_type} - ${color}</div></div>`
+    wdResultContainer.innerHTML += `<div data-id=${id}>${personal_nickname} <ul class="pop-up" data-clothing=${id} style="display: none;"><li>${brand}</li> <li>${clothing_type}</li>  <li>${color}</li></ul></div>`
     
 }
 
