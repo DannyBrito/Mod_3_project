@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: Helvetica;
 }
 
 .grid-container {
@@ -59,7 +60,6 @@ body {
 .my-dropdown {
     display: none;
     position: absolute;
-    /* align-content: center; */
     left: 0px;
     top: 50px;
     width: 90%;
@@ -79,7 +79,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
     position: relative;
-    /* margin-right: 15%; */
     font-size: 2.5vw;
     align-content: center;
     text-align: center;
@@ -89,9 +88,7 @@ body {
 .dropdown-list li:hover {
     background-color: rgb(214, 213, 213);
     width: 200px;
-    /* text-decoration: underline; */
     transition: all .25s ease;
-    /* border: 1px solid black; */
     cursor: pointer;
     list-style-type: disc;
 }
@@ -103,8 +100,6 @@ body {
     list-style-type: disc;
 }
  
-
-
 
 .mc-nav{
     display: grid;
@@ -134,10 +129,59 @@ body {
 }
  
 #mc-content-space{
+    position: relative;
     height: 100vh;
     margin: 1px;
-    width: 80%;
+    width: 100%;
 }
 
 
 
+
+#clothing-user-container {
+    align-content: center;
+    position: absolute;
+    width: 100%;
+    line-height: 1.5;
+}
+
+.clothing-block {
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+}
+
+#new-item-form-cont {
+    position: absolute;
+    top: 350px;
+}
+
+#newItemForm label {
+    font-size: 12px;
+}
+
+#wd-result-display div {
+    position: relative;
+}
+
+.pop-up {
+    list-style-type: none;
+    position: absolute;
+    left: -55%;
+    background-color: white;
+    box-shadow: 1px 1px;
+    z-index: 2;
+}
+
+
+/* all search buttons*/
+.search {
+    height: 50px;
+    padding: 10px;
+    background-color: whitesmoke;
+    font-size: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    border-style: outset;
+    outline: none;
+}
