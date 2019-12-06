@@ -152,7 +152,7 @@ function fetchallClothing(){
 const renderItemInventory = function(item){
     const{brand,color,clothing_type} = item
     mcContent.innerHTML +=
-    `<div>${clothing_type} - ${color} - ${brand} <button data-clothing-id=${item.id}> ✅</button> </div>`
+    `<div class="all-clothing"> ${brand}- ${clothing_type} - <span style="color:${color};">${color}</span> <button data-clothing-id=${item.id}> ✅</button> </div>`
 }
 
 function fullInventoryEvent(){

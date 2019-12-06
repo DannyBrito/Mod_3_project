@@ -1,29 +1,29 @@
 //usersUrl = 'http://localhost:3000/api/v1/users' --- REFERENCE
 
 //get clothing for a user
-function getUserClothing(save = false, btFlag = false){
+function getUserClothing(save = false, btFlag = false) {
 
     fetch(usersUrl + `/${currentUser}`)
         .then(res => res.json())
-        .then(json =>{
-            const {clothing_items} = json
+        .then(json => {
+            const { clothing_items } = json
             // use to render wardrove or save it into
-            if(save) currentUserClothing = clothing_items
+            if (save) currentUserClothing = clothing_items
 
-            else{
+            else {
                 // <div id="rend-full-inv"> <button>Add Clothing by our Inventory</button></div> alternative for button
-                mcContent.innerHTML = 
-                `<div id="clothing-user-container">   
+                mcContent.innerHTML =
+                    `<div id="clothing-user-container">   
                 </div>
                 <div id="new-item-form-cont">
                 </div>`
                 newClothingItemdiv = document.getElementById('new-item-form-cont')
 
-                if(btFlag) {
+                if (btFlag) {
                     document.getElementById('clothing-user-container').innerHTML = `<button>Add Clothing by our Inventory</button>`
-                    newClothingItemdiv.innerHTML = 
+                    newClothingItemdiv.innerHTML =
 
-                `<form id="newItemForm">
+                        `<hr><form id="newItemForm">
                     <label>Nickname:</label>
                     <input type="text"><br>
                     <label>Type:</label>
@@ -34,39 +34,39 @@ function getUserClothing(save = false, btFlag = false){
                     <label>Color:</label>
                     <input type="text"><br>
                     <label>Temperature Min:</label>
-                    <input type="number"><br>
+                    <input type="number" min="-40"><br>
                     <label>Temperature Max:</label>
-                    <input type="number">
-                    <input class="search" type="submit" value="Search">
+                    <input type="number" max="140"><br>
+                    <input class="search" type="submit" value="Create">
                 </form>`
-                newItemFormc()
+                    newItemFormc()
 
-            }
+                }
 
-                if (clothing_items.length){
+                if (clothing_items.length) {
                     clothing_items.forEach(item => renderClothingItem(item, btFlag));
                 }
-                else{
-                    mcContent.innerHTML = "Get clothing B" 
+                else {
+                    mcContent.innerHTML = "Get clothing B"
                 }
             }
         })
 }
 
 //helper method to render one clothing item
-const renderClothingItem = function(itemObject, deleteBtnflag = false){
-    const {brand,clothing_type,color,personal_nickname,user_item_connection} = itemObject
+const renderClothingItem = function (itemObject, deleteBtnflag = false) {
+    const { brand, clothing_type, color, personal_nickname, user_item_connection } = itemObject
     let itemHTML;
-    if(deleteBtnflag){ itemHTML = `<div class="clothing-block"> <strong>${personal_nickname}</strong>: ${brand} - <span style="color: ${color}">${color}</span> <button data-uci-id=${user_item_connection}> ❌ </button> </div>`}
-    else{itemHTML = `<div class="clothing-block" data-uci-id=${user_item_connection}><strong>${personal_nickname}</strong>: ${brand} - <span style="color: ${color}">${color}</span></div>`}
+    if (deleteBtnflag) { itemHTML = `<div class="clothing-block"> <strong>${personal_nickname}</strong>: ${brand} - <span style="color: ${color}">${color}</span> <button data-uci-id=${user_item_connection}> ❌ </button> </div>` }
+    else { itemHTML = `<div class="clothing-block" data-uci-id=${user_item_connection}><strong>${personal_nickname}</strong>: ${brand} - <span style="color: ${color}">${color}</span></div>` }
     mcContent.querySelector('div#clothing-user-container').innerHTML += itemHTML
 }
 
 // change maincontainer-content
-const renderSearchWeatherForm = function(){
+const renderSearchWeatherForm = function () {
     mcContent.innerHTML = ""
     mcContent.innerHTML =
-    `<div id="sb-mc-container">
+        `<div id="sb-mc-container">
         <form id="w-search-form">
             <label>City:</label><br>
                 <input type="text"><br>
@@ -85,24 +85,24 @@ const renderSearchWeatherForm = function(){
     SearchWeatherFormEvent() // add an event listener to the form right after created
 }
 
-function countryCodesFetch(){
+function countryCodesFetch() {
     fetch(baseUrl + `/country-codes`)
         .then(res => res.json())
         .then(json => {
-            for(const key in json){
+            for (const key in json) {
                 optionCountryHtml(key, json[key])
             }
         })
 }
 
-function optionCountryHtml(code, countryName){
-    selectCountryForm.innerHTML += 
-    `<option value=${code.toLowerCase()}>${countryName}</option>`
+function optionCountryHtml(code, countryName) {
+    selectCountryForm.innerHTML +=
+        `<option value=${code.toLowerCase()}>${countryName}</option>`
 }
 
 // creating a instance to connect an user with a clothing item
-function userItemCreateConnection(nickName,clothing_item_id){
-    fetch(uciUrl,{
+function userItemCreateConnection(nickName, clothing_item_id) {
+    fetch(uciUrl, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
@@ -115,21 +115,22 @@ function userItemCreateConnection(nickName,clothing_item_id){
             exiting_Item: true
         })
     })
-    .then(res => res.json())
-    .then(json =>console.log(json))
+        .then(res => res.json())
+        .then(json => console.log(json))
 }
 
-function userItemDestroyConnection(id){
-    fetch( uciUrl+`/${id}`,{
+function userItemDestroyConnection(id) {
+    fetch(uciUrl + `/${id}`, {
         method: "DELETE",
         // headers: {
         //     'Content-Type': 'application/json',
         //     Accept: 'application/json'
         // },
     })
-    .then(res => res.json())
-    .then(json =>{
-        getUserClothing(false,true)//render
-        getUserClothing(true)// save new clothing inventory
-        console.log(json)})
+        .then(res => res.json())
+        .then(json => {
+            getUserClothing(false, true)//render
+            getUserClothing(true)// save new clothing inventory
+            console.log(json)
+        })
 }
