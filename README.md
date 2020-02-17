@@ -8,15 +8,15 @@ Users can join the app and quickly populate their wardrobe for outfit suggestion
 
 ## Overview
 
-Users can access & edit their wardrobe for better clothing suggetions.
+Users can access & edit their wardrobe for better clothing suggestions.
 
 <b>Current Section:</b> Users can search for specific city locations for weather overlook and clothing suggestions.
-In case of multiple cities with same name, users can be more specific by selecting a country.
+In case of multiple cities with the same name, users can be more specific by selecting a country.
 
 ![](./docs/overview.gif)
 
 <b>Wardrobe:</b>
-Users can rapidly edit and expand their wardrobe by browsing the clothing avalible on the app database.
+Users can rapidly edit and expand their wardrobe by browsing the clothing available on the app database.
 
 ![](./docs/edit.gif)
 
@@ -49,7 +49,7 @@ These instructions will get you a copy of the project up and running on your loc
     rails server -p 3000
     ```
 4. go back to main directory and move to client ``` cd client```.
-5. open index.html on your prefer browser.
+5. open index.html on your preferred browser.
 
 
 ## Meta
