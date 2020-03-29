@@ -15,7 +15,7 @@ In case of multiple cities with the same name, users can be more specific by sel
 
 ![](./docs/overview.gif)
 
-<b>Wardrobe:</b>
+<b>Wardrobe: </b>
 Users can rapidly edit and expand their wardrobe by browsing the clothing available on the app database.
 
 ![](./docs/edit.gif)
